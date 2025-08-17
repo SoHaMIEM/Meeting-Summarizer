@@ -1,0 +1,58 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Install Frontend Dependencies",
+			"type": "shell",
+			"command": "npm install",
+			"args": [],
+			"options": {
+				"cwd": "${workspaceFolder}/frontend"
+			},
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Install Backend Dependencies",
+			"type": "shell",
+			"command": "pip install -r requirements.txt",
+			"args": [],
+			"options": {
+				"cwd": "${workspaceFolder}/backend"
+			},
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Start Frontend",
+			"type": "shell",
+			"command": "npm start",
+			"args": [],
+			"options": {
+				"cwd": "${workspaceFolder}/frontend"
+			},
+			"problemMatcher": [],
+			"group": "build",
+			"isBackground": true
+		},
+		{
+			"label": "Start Backend",
+			"type": "shell",
+			"command": "python app.py",
+			"args": [],
+			"options": {
+				"cwd": "${workspaceFolder}/backend"
+			},
+			"problemMatcher": [],
+			"group": "build",
+			"isBackground": true
+		},
+		{
+			"label": "Start Full Application",
+			"dependsOrder": "parallel",
+			"dependsOn": ["Start Frontend", "Start Backend"],
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}
